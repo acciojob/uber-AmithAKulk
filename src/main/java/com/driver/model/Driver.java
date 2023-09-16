@@ -6,6 +6,7 @@ import java.util.List;
 
 @Entity
 public class Driver {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int driverId;
@@ -14,11 +15,10 @@ public class Driver {
 
     private String password;
 
-    //For mapping to Cab(Parent)
-    @OneToOne(mappedBy = "driver", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "driver" , cascade = CascadeType.ALL)
     Cab cab;
-    //For mapping to tripBooking(Child)
-    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "driver" , cascade = CascadeType.ALL)
     List<TripBooking> tripBookingList = new ArrayList<>();
 
     public Driver() {
