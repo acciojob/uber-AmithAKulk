@@ -10,11 +10,19 @@ public interface AdminService {
 
 	public void adminRegister(Admin admin);
 
-	public Admin updatePassword(Integer adminId, String password);
+	Admin updatePassword(Integer adminId, String password);
 
-	public void deleteAdmin(int adminId);
+	void deleteAdmin(int adminId);
 
-	public List<Driver> getListOfDrivers();
-	
-	public List<Customer> getListOfCustomers();
+	List<Driver> getListOfDrivers();
+
+	List<Customer> getListOfCustomers();
+
+//	public Admin updatePassword(Integer adminId, String password);
+//
+//	public void deleteAdmin(int adminId);
+//
+//	public List<Driver> getListOfDrivers();
+//
+//	public List<Customer> getListOfCustomers();
 }
