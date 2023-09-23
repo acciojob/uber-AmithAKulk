@@ -13,4 +13,3 @@ public class Uber {
 		SpringApplication.run(Uber.class, args);
 	}
 
-}

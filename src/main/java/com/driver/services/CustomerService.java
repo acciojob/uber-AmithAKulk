@@ -9,24 +9,15 @@ import com.driver.model.TripBooking;
 
 
 public interface CustomerService {
-	void register(Customer customer);
 
-	void deleteCustomer(Integer customerId);
+	public void register(Customer customer);
 
-	TripBooking bookTrip(int customerId, String fromLocation, String toLocation, int distanceInKm) throws Exception;
+	public void deleteCustomer(Integer customerId);
 
-	void cancelTrip(Integer tripId);
+	public TripBooking bookTrip(int customerId, String fromLocation, String toLocation, int distanceInKm) throws Exception;
 
-	void completeTrip(Integer tripId);
+	public void cancelTrip(Integer tripId);
 
-//	public void register(Customer customer);
-//
-//	public void deleteCustomer(Integer customerId);
-//
-//	public TripBooking bookTrip(int customerId, String fromLocation, String toLocation, int distanceInKm) throws Exception;
-//
-//	public void cancelTrip(Integer tripId);
-//
-//	public void completeTrip(Integer tripId);
+	public void completeTrip(Integer tripId);
 
 }
