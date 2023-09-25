@@ -1,20 +1,22 @@
 package com.driver.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
+import javax.persistence.*;
 
 @Entity
+
 public class Admin {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //this will create independent incrementation for every table
     private int adminId;
 
     private String username;
 
     private String password;
+
 
     public Admin() {
     }

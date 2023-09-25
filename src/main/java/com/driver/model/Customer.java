@@ -6,7 +6,6 @@ import java.util.List;
 
 @Entity
 public class Customer {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerId;
@@ -15,7 +14,7 @@ public class Customer {
 
     private String password;
 
-    @OneToMany(mappedBy = "customer" , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     List<TripBooking> tripBookingList = new ArrayList<>();
 
     public Customer() {
@@ -26,6 +25,12 @@ public class Customer {
         this.mobile = mobile;
         this.password = password;
         this.tripBookingList = tripBookingList;
+    }
+
+    public Customer(int customerId, String mobile, String password) {
+        this.customerId = customerId;
+        this.mobile = mobile;
+        this.password = password;
     }
 
     public int getCustomerId() {

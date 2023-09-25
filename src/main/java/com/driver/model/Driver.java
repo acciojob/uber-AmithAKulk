@@ -15,10 +15,10 @@ public class Driver {
 
     private String password;
 
-    @OneToOne(mappedBy = "driver" , cascade = CascadeType.ALL)
+    @OneToOne (mappedBy = "driver", cascade = CascadeType.ALL)
     Cab cab;
 
-    @OneToMany(mappedBy = "driver" , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
     List<TripBooking> tripBookingList = new ArrayList<>();
 
     public Driver() {
@@ -30,6 +30,12 @@ public class Driver {
         this.password = password;
         this.cab = cab;
         this.tripBookingList = tripBookingList;
+    }
+
+    public Driver(int driverId, String mobile, String password) {
+        this.driverId = driverId;
+        this.mobile = mobile;
+        this.password = password;
     }
 
     public int getDriverId() {

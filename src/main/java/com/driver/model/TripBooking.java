@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 @Entity
 public class TripBooking {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int tripBookingId;
@@ -17,7 +16,8 @@ public class TripBooking {
 
     private int distanceInKm;
 
-    private TripStatus status;
+    @Enumerated(EnumType.STRING)
+    private TripStatus tripStatus;
 
     private int bill;
 
@@ -32,16 +32,24 @@ public class TripBooking {
     public TripBooking() {
     }
 
-    public TripBooking(int tripBookingId, String fromLocation, String toLocation, int distanceInKm,
-                       TripStatus status, int bill, Driver driver, Customer customer) {
+    public TripBooking(int tripBookingId, String fromLocation, String toLocation, int distanceInKm, TripStatus tripStatus, int bill, Driver driver1, Customer customer) {
         this.tripBookingId = tripBookingId;
         this.fromLocation = fromLocation;
         this.toLocation = toLocation;
         this.distanceInKm = distanceInKm;
-        this.status = status;
+        this.tripStatus = tripStatus;
         this.bill = bill;
-        this.driver = driver;
+        this.driver = driver1;
         this.customer = customer;
+    }
+
+    public TripBooking(int tripBookingId, String fromLocation, String toLocation, int distanceInKm, TripStatus tripStatus, int bill) {
+        this.tripBookingId = tripBookingId;
+        this.fromLocation = fromLocation;
+        this.toLocation = toLocation;
+        this.distanceInKm = distanceInKm;
+        this.tripStatus = tripStatus;
+        this.bill = bill;
     }
 
     public int getTripBookingId() {
@@ -77,11 +85,11 @@ public class TripBooking {
     }
 
     public TripStatus getStatus() {
-        return status;
+        return tripStatus;
     }
 
-    public void setStatus(TripStatus status) {
-        this.status = status;
+    public void setStatus(TripStatus tripStatus) {
+        this.tripStatus = tripStatus;
     }
 
     public int getBill() {
@@ -96,8 +104,8 @@ public class TripBooking {
         return driver;
     }
 
-    public void setDriver(Driver driver) {
-        this.driver = driver;
+    public void setDriver(Driver driver1) {
+        this.driver = driver1;
     }
 
     public Customer getCustomer() {

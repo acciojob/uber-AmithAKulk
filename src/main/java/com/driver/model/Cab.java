@@ -2,8 +2,6 @@ package com.driver.model;
 
 import javax.persistence.*;
 
-
-
 @Entity
 public class Cab {
 
@@ -13,7 +11,7 @@ public class Cab {
 
     private int perKmRate;
 
-    boolean available;
+    private boolean available;
 
     @OneToOne
     @JoinColumn
@@ -27,6 +25,12 @@ public class Cab {
         this.perKmRate = perKmRate;
         this.available = available;
         this.driver = driver;
+    }
+
+    public Cab(int id, int perKmRate, boolean available) {
+        this.id = id;
+        this.perKmRate = perKmRate;
+        this.available = available;
     }
 
     public int getId() {
@@ -60,6 +64,4 @@ public class Cab {
     public void setDriver(Driver driver) {
         this.driver = driver;
     }
-
-
 }
